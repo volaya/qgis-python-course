@@ -8,24 +8,24 @@ The QGIS API
 
 - Introduce the QGIS API and other APIs. 
 
-	Links:
+	- Links:
 
-	- `QGIS API <http://qgis.org/api/>`_
-	- `QGIS-Python API <https://qgis.org/pyqgis/3.0/>`_
-	- PyQt: `Qt4 <http://pyqt.sourceforge.net/Docs/PyQt4>`_  in the case of QGIS 2, or `Qt5 <http://pyqt.sourceforge.net/Docs/PyQt5>`_ in the case of QGIS 3
-	- `GeoAPIs <http://geoapis.sourcepole.com>`_: A more practical solution for browsing the Python, Qt and QGIS APIs.
+		- `QGIS API <http://qgis.org/api/>`_
+		- `QGIS-Python API <https://qgis.org/pyqgis/3.0/>`_
+		- PyQt: `Qt4 <http://pyqt.sourceforge.net/Docs/PyQt4>`_  in the case of QGIS 2, or `Qt5 <http://pyqt.sourceforge.net/Docs/PyQt5>`_ in the case of QGIS 3
+		- `GeoAPIs <http://geoapis.sourcepole.com>`_: A more practical solution for browsing the Python, Qt and QGIS APIs.
 
-	The reference text for developing Python plugins and using the QGIS Python Console is the  `PyQGIS cookbook <http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/>`_.
+	- The reference text for developing Python plugins and using the QGIS Python Console is the  `PyQGIS cookbook <http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/>`_.
 
-	Some additional resources that can be used as a reference or as a source of examples:
+	- Some additional resources that can be used as a reference or as a source of examples:
 
-	- This repository contains densely commented versions of a few QGIS plugins, so their code can be read as a learning tool.
+		- This repository contains densely commented versions of a few QGIS plugins, so their code can be read as a learning tool.
 
-		https://github.com/volaya/commented-qgis-plugins
+			https://github.com/volaya/commented-qgis-plugins
 
-	- A collection of short snippets can be found here:
+		- A collection of short snippets can be found here:
 
-		https://github.com/webgeodatavore/pyqgis-samples
+			https://github.com/webgeodatavore/pyqgis-samples
 
 - The Python console. The first place to start trying some simple commands. Here are some `some short exercises <./console.py>`_ (code +  comments)
 
@@ -37,7 +37,7 @@ The QGIS API
 
 - Custom Python actions. React to user interaction in the canvas or attributes table.
 
-	- `Here <./actions.py>`_ is an example of an action to be added to the countries vector layer that can be found in the `data` folder. The action is added in the `Actions` section of the layer properties.
+	`Here <./actions.py>`_ is an example of an action to be added to the countries vector layer that can be found in the `data` folder. The action is added in the `Actions` section of the layer properties.
 
 - Maptips. Custom behaviour of map tips using QGIS expressions with python functions.
 
@@ -56,15 +56,15 @@ The QGIS API
 
 	When a set of scripts has been created, it can be packaged into a plugin that adds those scripts. That can be done from the Processing toolbox, as explained `here <https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/processing.html#id2>`_
 
--Creating plugins.
+- Creating plugins.
 
 	The following three plugins are recommended for creating a new QGIS plugin:
 
-	- `Plugin Creator <https://github.com/volaya/qgis-plugincreator-plugin/>`_: It generates the plugin skeleton. The description of elements in that skeleton is provided in the `plugin documentation <https://github.com/volaya/qgis-plugincreator-plugin/blob/master/README.md>`_.
+		- `Plugin Creator <https://github.com/volaya/qgis-plugincreator-plugin/>`_: It generates the plugin skeleton. The description of elements in that skeleton is provided in the `plugin documentation <https://github.com/volaya/qgis-plugincreator-plugin/blob/master/README.md>`_.
 
-	- `Plugin reloader <https://github.com/borysiasty/plugin_reloader>`_: To update plugins when you make changes in the code, without having to restart QGIS. 
+		- `Plugin reloader <https://github.com/borysiasty/plugin_reloader>`_: To update plugins when you make changes in the code, without having to restart QGIS. 
 
-	- `First aid plugin <https://github.com/wonder-sk/qgis-first-aid-plugin>`_: Plugin with useful tools for plugin developers, including debugin tools.
+		- `First aid plugin <https://github.com/wonder-sk/qgis-first-aid-plugin>`_: Plugin with useful tools for plugin developers, including debugin tools.
 
 	An example of a minimal functional plugin can be found in the `plugin` folder or this repository.
 
