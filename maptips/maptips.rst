@@ -30,7 +30,7 @@ p {width: 300px;}
 
 You will see that the section in the paragraph is a QGIS expression, and that it calls a function called `wikipediaSummary`, passing it the value in the `wikipedia` field (the double quotes indicate the value of a field, and will be resolved to that value). We do not have such a method, but we can create it using the expression dialog, which you can open by clicking on the `Insert expression...` button.
 
-The code for that function can be found in `this file <./maptip.txt>`_. Make sure you click on the `Load` button once you have defined it, as explained in a previous section.
+The code for that function can be found in `this file <./maptips.txt>`_. Make sure you click on the `Load` button once you have defined it, as explained in a previous section.
 
 Since the text in the maptip is likely to be large, we use some CSS code to ensure that the maptip is wide enough.
 
