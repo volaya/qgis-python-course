@@ -1,4 +1,5 @@
 import urllib
+import urllib2
 import json
 from qgis.core import *
 from qgis.gui import *
@@ -15,12 +16,11 @@ def wikipediaSummary(name, feature, parent):
 			'explaintext': True,
 			}
 	url = baseurl + urllib.parse.urlencode(params)
-	try:
-		response = urllib.request.urlopen(url)  
-		sresults = response.read()
-		results = json.loads(sresults)
-		extract = list(results['query']['pages'].values())[0]['extract']
-		return extract
-	except Exception:
+
+	response = urllib2.urlopen(url)
+	if response.getcode() != 200:
 		return "No wikipedia entry was found"
-			
+	sresults = response.read()
+	results = json.loads(sresults)
+	extract = list(results['query']['pages'].values())[0]['extract']
+	return extract

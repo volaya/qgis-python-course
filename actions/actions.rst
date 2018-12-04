@@ -6,9 +6,9 @@ QGIS allows to add actions that are triggered when the user interacts with a giv
 
 Actions can be defined in several ways, one of them being with the use of Python code.
 
-To add an action, open the layer properties and then move to the `Actions tab`. We will be working with the `cities` layer for this example.
+To add an action, open the layer properties and then move to the `Actions tab`. We will be working with the `countries` layer for this example.
 
-We will add an action that will take the value of a given field (in this case a field named `ls_name` where the city name is stored for our sample layer), and open the Wikipedia page corresponding to that value. If such page doesn't exist, an error message will be shown.
+We will add an action that will take the value of a given field (in this case a field named `wikipedia` where the city name is stored for our sample layer), and open the Wikipedia page corresponding to that value. If such page doesn't exist, an error message will be shown.
 
 In the actions tab, create a new action by clicking on the plus sign.
 

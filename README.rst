@@ -3,10 +3,10 @@ QGIS-Python programming
 
 Below is the structure of an introductory QGIS-Python course.
 
-The QGIS API
----------------
 
-- Introduce the QGIS API and other APIs. 
+- The QGIS API.
+
+	Introduce the QGIS API and other APIs. 
 
 	- Links:
 
@@ -28,17 +28,14 @@ The QGIS API
 
 - The Python console. The first place to start trying some simple commands. Here are some `some short exercises <./console.py>`_ (code +  comments)
 
-- `Expressions <./expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
+- `Expressions <./expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
 
 
+- `Custom Python actions <actions/actions.py>`_. React to user interaction in the canvas or attributes table.
 
-- Custom Python actions. React to user interaction in the canvas or attributes table.
 
-	`Here <./actions.py>`_ is an example of an action to be added to the countries vector layer that can be found in the `data` folder. The action is added in the `Actions` section of the layer properties.
+- `Maptips <maptips/maptips.py>`_. Custom behaviour of map tips using QGIS expressions with Python functions.
 
-- Maptips. Custom behaviour of map tips using QGIS expressions with python functions.
-
-	Using the ideas introduced in the previous sections, `here <./maptip.py>`_ is a function that can be used in such an expression. Once the function is added, the maptip can be defined for the countries vector layer, usign `this code <./maptip.txt>`_ in the `Display` section of the layer properties.
 
 - Hooks/Macros. Executing Python code to respond to QGIS events.
 
