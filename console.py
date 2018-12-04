@@ -33,7 +33,9 @@ print (totalPopulation)
 '3. Add a new field indicating if the feature is in the (N)orthern hemisphere, (S)outhern or (B)oth'
 from qgis.PyQt.QtCore import QVariant
 
+#We define the function that computes the hemisphere for a given geometry
 def hemisphere(geom):
+	#To compute the hemisphere, we just see where the top and bottom coordinates of the feature fall.
 	box = geom.boundingBox()
 	if box.yMinimum() > 0 and box.yMaximum() > 0:
 		return "N"
@@ -43,12 +45,17 @@ def hemisphere(geom):
 		return "B"
 
 layer = iface.activeLayer()
-provider = layer.dataProvider()
+'''We get the layer provider, which we wil use to modify the layer features.
+Changes can be made directly to the layer object, using an edit buffer,
+but we do it directly with the provider for the sake of simplicity'''
+provider = layer.dataProvider() 
+#We add the field and updated the layer for the change to take effect
 provider.addAttributes([QgsField("hemisphere", QVariant.String)])
 layer.updateFields()
 idxField = layer.fieldNameIndex("hemisphere")
 features = layer.getFeatures()
-
+'''Now we iterate over the features of the layer, 
+and for each of them we add the corresponding value to the new field'''
 for feat in features:
 	geom = feat.geometry()            
 	hemi = hemisphere(geom)
