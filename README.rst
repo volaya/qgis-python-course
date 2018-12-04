@@ -11,11 +11,10 @@ The QGIS API
 	- Links:
 
 		- `QGIS API <http://qgis.org/api/>`_
-		- `QGIS-Python API <https://qgis.org/pyqgis/3.0/>`_
-		- PyQt: `Qt4 <http://pyqt.sourceforge.net/Docs/PyQt4>`_  in the case of QGIS 2, or `Qt5 <http://pyqt.sourceforge.net/Docs/PyQt5>`_ in the case of QGIS 3
+		- `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4>`_ 
 		- `GeoAPIs <http://geoapis.sourcepole.com>`_: A more practical solution for browsing the Python, Qt and QGIS APIs.
 
-	- The reference text for developing Python plugins and using the QGIS Python Console is the  `PyQGIS cookbook <http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/>`_.
+	- The reference text for developing Python plugins and using the QGIS Python Console is the  `PyQGIS cookbook <http://docs.qgis.org/2.18/en/docs/pyqgis_developer_cookbook/>`_.
 
 	- Some additional resources that can be used as a reference or as a source of examples:
 
@@ -29,11 +28,9 @@ The QGIS API
 
 - The Python console. The first place to start trying some simple commands. Here are some `some short exercises <./console.py>`_ (code +  comments)
 
-- Expressions. How to create a custom Python expression and later use it in different places in QGIS. 
+- `Expressions <./expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
 
-	Based on the previous point, `here <./expressions.py>`_ is the code for a custom function that can be later used for rendering. Another option would be to use it to create a new field using the field calculator. 
 
-	If the user is not familiar with QGIS expressions, a quick review is recommended. `Here <https://docs.qgis.org/2.18/en/docs/user_manual/working_with_vector/expression.html>`_ is the official documentation (which includes a short section about custom Python expressions as well).
 
 - Custom Python actions. React to user interaction in the canvas or attributes table.
 

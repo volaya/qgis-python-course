@@ -9,7 +9,7 @@ layer = iface.activeLayer()
 features = layer.getFeatures()
 totalPopulation = 0
 for feat in features: #we iterate over features in the layers
-	pop = feat["pop_est"] #retrieve the population value using the feature as a dictionary.
+	pop = feat["pop_est"] #retrieve the population value using the feature as a dictionary and the field name as key.
 	if pop > 0:
 		totalPopulation += pop
 
