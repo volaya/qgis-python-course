@@ -31,10 +31,10 @@ Below is the structure of an introductory QGIS-Python course.
 - `Expressions <./expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
 
 
-- `Custom Python actions <actions/actions.py>`_. React to user interaction in the canvas or attributes table.
+- `Custom Python actions <actions/actions.rst>`_. React to user interaction in the canvas or attributes table.
 
 
-- `Maptips <maptips/maptips.py>`_. Custom behaviour of map tips using QGIS expressions with Python functions.
+- `Maptips <maptips/maptips.rst>`_. Custom behaviour of map tips using QGIS expressions with Python functions.
 
 
 - Hooks/Macros. Executing Python code to respond to QGIS events.
