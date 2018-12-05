@@ -13,7 +13,7 @@ In the actions tab, create a new action by clicking on the plus sign.
 
 In the dialog that will appear, paste the following code. 
 
-::
+.. code-block:: python
 
 	import urllib
 	import webbrowser 

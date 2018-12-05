@@ -13,7 +13,7 @@ We will be working with data, so you should load the provided `countries` layer.
 
 You have access to the QGIS interface using the ``iface``. It's an object of class ``qgis.gui.QgisInterface`` (type ``type(iface)``  to check it), and you can see in its `API page <https://qgis.org/api/2.18/classQgisInterface.html>`_ that it has many methods. Among them, there is a ``activeLayer()`` one that gives us the layer currently selected in the layer list.
 
-::
+.. code-block:: python
 
 	>>> layer = iface.activeLayer()
 	>>> type(layer)
@@ -22,14 +22,14 @@ You have access to the QGIS interface using the ``iface``. It's an object of cla
 
 We have a ``QgsVectorLayer`` object. Again, we can go to the corresponding `QGIS API page <https://qgis.org/api/2.18/classQgsVectorLayer.html>`_  to check the available methods. Among them we find one to get the number of features in the layer.
 
-::
+.. code-block:: python
 
 	>>> layer.featureCount()
 	177L
 
 We can explore the data contained in the vector layer with more detail. Here is an example that computes the total population of the world, by adding the values in the ``pop_est`` field, which contain the population of each country.
 
-::
+.. code-block:: python
 
 	layer = iface.activeLayer()
 	features = layer.getFeatures()
@@ -52,7 +52,7 @@ Now you can enter your script there and then click on the ``Run script`` button 
 
 Knowing that there is a field that contains the continent that each country belongs to, we can improve our previous script and compute the population of each continent.
 
-::
+.. code-block:: python
 
 	layer = iface.activeLayer()
 	features = layer.getFeatures()

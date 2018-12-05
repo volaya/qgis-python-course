@@ -3,7 +3,6 @@ QGIS-Python programming
 
 Below is the structure of an introductory QGIS-Python course.
 
-
 - The QGIS API.
 
 	Introduce the QGIS API and other APIs. 

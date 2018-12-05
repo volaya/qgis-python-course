@@ -25,7 +25,32 @@ Click on ``New file`` to create a new file for our function code. Name the file 
 
       .. figure:: addedfile.png
 
-The file will be filled with a template function. Use the code of the `hemisphere.py <./hemisphere.py>`_ file instead. The code in that file is fully commented, and should give you a good explanation about how python expression functions work.
+The file will be filled with a template function. Use the code below instead. The code in that file is fully commented, and should give you a good explanation about how python expression functions work.
+
+
+.. code-block:: python
+
+	'''It's recommended to leave the 'args' parameter with the 'auto' value.
+	That will define the function syntax automatically, based on the function definition.
+	The 'feature' and 'parent' parameters will always be passed and have to be declared.
+	In the 'group' parameter, set the group that you want the function to belong to. 
+	It will appear under that group in the list of available functions in the expressions dialog.
+	'''
+	@qgsfunction(args="auto", group="Custom", usesgeometry=True)
+	def hemisphere(geom, feature, parent):
+		'''Computes the hemisphere a features falls in. Coordinates are assumed to be geographic'''
+		'''
+		We get the bounding box of the geometry and see if it crosses the equator. 
+		Based on the result, we return (N)orth, (S)outh or (B)oth
+		'''
+		box = geom.boundingBox()
+		if box.yMinimum() > 0 and box.yMaximum() > 0:
+			return "N"
+		if box.yMinimum() <= 0 and box.yMaximum() <= 0:
+			return "S"
+		else:
+			return "B"
+
 
 Once that you have written the function code, click on the ``Load`` button to update the list of functions. Now move back and you will see that the 'hemisphere' functions is already available. Enter the following expression: ``hemisphere($geometry)``.
 
