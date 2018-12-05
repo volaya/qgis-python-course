@@ -54,3 +54,6 @@ As you can see, it looks like a regular script that uses the QGIS API, but it co
 Use the code above to create a new algorithm, and save it as explained at the beginning of this section. Your algorithm will be available in the Processing Toolbo, and you can open it to test it on the provided sample layer.
 
 More detailed information about how to write Processing algorithms is found in the `corresponding section <https://docs.qgis.org/2.18/en/docs/user_manual/processing/scripts.html>`_ in the QGIS user manual.
+
+When a set of scripts has been created, it can be packaged into a plugin that adds those scripts. That can be done from the Processing toolbox, as explained `here <https://docs.qgis.org/2.18/en/docs/pyqgis_developer_cookbook/processing.html#id2>`_
+
