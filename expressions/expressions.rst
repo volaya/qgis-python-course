@@ -9,25 +9,25 @@ If you are not familiar with QGIS expressions, `here <https://docs.qgis.org/2.18
 
 In the section dedicated to our first examples on the console, we introduced a function to compute the hemisphere a feature was located in, which returned a letter as a result. We can turn that function into a new custom expression function, so it can be used anywhere where QGIS allow to use expressions.
 
-Let's say we want to use that function to label the features in the `countries`layer. First, open the layer properties and move to the section where labeling is defined.
+Let's say we want to use that function to label the features in the ``countries``layer. First, open the layer properties and move to the section where labeling is defined.
 
       .. figure:: labeling.png
 
-In the `label with` field, instead of selecting a field, click on the button on the right-hand side, to open the expressions dialog.
+In the ``label with`` field, instead of selecting a field, click on the button on the right-hand side, to open the expressions dialog.
       
       .. figure:: expressionsdialog.png
 
-We want to add our own Python function, so we should move to the `Function editor` tab.
+We want to add our own Python function, so we should move to the ``Function editor`` tab.
 
       .. figure:: functioneditor.png
 
-Click on `New file` to create a new file for our function code. Name the file `hemisphere.py`. It will be added to the list of available expression files.
+Click on ``New file`` to create a new file for our function code. Name the file ``hemisphere.py``. It will be added to the list of available expression files.
 
       .. figure:: addedfile.png
 
 The file will be filled with a template function. Use the code of the `hemisphere.py <./hemisphere.py>`_ file instead. The code in that file is fully commented, and should give you a good explanation about how python expression functions work.
 
-Once that you have written the function code, click on the `Load` button to update the list of functions. Now move back and you will see that the 'hemisphere' functions is already available. Enter the following expression: `hemisphere($geometry)`.
+Once that you have written the function code, click on the ``Load`` button to update the list of functions. Now move back and you will see that the 'hemisphere' functions is already available. Enter the following expression: ``hemisphere($geometry)``.
 
       .. figure:: finalexpression.png
 

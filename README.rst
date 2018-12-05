@@ -26,7 +26,7 @@ Below is the structure of an introductory QGIS-Python course.
 
 			https://github.com/webgeodatavore/pyqgis-samples
 
-- The Python console. The first place to start trying some simple commands. Here are some `some short exercises <./console.py>`_ (code +  comments)
+- `The Python console <console/console.rst>`_. The first place to start exploring the QGIS API.
 
 - `Expressions <./expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
 
@@ -37,20 +37,16 @@ Below is the structure of an introductory QGIS-Python course.
 - `Maptips <maptips/maptips.rst>`_. Custom behaviour of map tips using QGIS expressions with Python functions.
 
 
-- Hooks/Macros. Executing Python code to respond to QGIS events.
-
-	Two macros are proposed, to be added to the project macros in the 'Project/Settings/Macros' section. The `first one <./projectmacroopen.py>`_ shows a warning message whenever the project is opened. The `second one <./projectmacrosave.py>`_ saves a new version of the project file to a git repository each time the project is saved.
+- `Macros <macros/macros.rst>`_. Executing Python code to respond to QGIS events.
 
 
-- Creating Processing algorithms.
-
-	In case the user needs to add analysis functionality, the best way to do it is to add a Processing algorithm.
+- `Processing algorithms <processing/processing.rst>`_.  In case the user needs to add analysis functionality, the best way to do it is to add a Processing algorithm.
 
 	It is reccomended to to start with a template, using the `Create New Script from Template` option in the Processing Toolbox. The template is fully commented and should contain enough information to understand what is needed to create a Processing algorithm.
 
 	When a set of scripts has been created, it can be packaged into a plugin that adds those scripts. That can be done from the Processing toolbox, as explained `here <https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/processing.html#id2>`_
 
-- Creating plugins.
+- `Creating plugins <plugins/plugins.rst>`_. How to create QGIS plugins that can be later distributed and installed in other QGIS instances.
 
 	The following three plugins are recommended for creating a new QGIS plugin:
 
