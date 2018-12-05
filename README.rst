@@ -27,7 +27,7 @@ Below is the structure of an introductory QGIS-Python course.
 
 - `The Python console <console/console.rst>`_. The first place to start exploring the QGIS API.
 
-- `Expressions <./expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
+- `Expressions <expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
 
 
 - `Custom Python actions <actions/actions.rst>`_. React to user interaction in the canvas or attributes table.

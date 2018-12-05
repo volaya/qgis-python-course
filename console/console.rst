@@ -69,7 +69,7 @@ Knowing that there is a field that contains the continent that each country belo
 
 We can define functions in our script, and use all Python elements in it. Here's a more complex example showing that:
 
-::
+.. code-block:: python
 
 
 	'''
@@ -112,5 +112,5 @@ We can define functions in our script, and use all Python elements in it. Here's
 
 As an exercise, try to adapt the above script, so it can work on layers that have any type of CRS, not just geographical coordinates. Here are a few hints.
 
-- You can obtain the CRS of a layer by calling its crs() method
+- You can obtain the CRS of a layer by calling its `crs() <https://qgis.org/api/2.18/classQgsMapLayer.html#a9162aacc3fa72ccc833be0148c48d567>`_ method
 - To transform between CRSs, use a `QgsCoordinateTransform <https://qgis.org/api/2.18/classQgsCoordinateTransform.html>`_ object.
