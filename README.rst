@@ -47,13 +47,3 @@ Below is the structure of an introductory QGIS-Python course.
 
 - `Creating plugins <plugins/plugins.rst>`_. How to create QGIS plugins that can be later distributed and installed in other QGIS instances.
 
-	The following three plugins are recommended for creating a new QGIS plugin:
-
-		- `Plugin Creator <https://github.com/volaya/qgis-plugincreator-plugin/>`_: It generates the plugin skeleton. The description of elements in that skeleton is provided in the `plugin documentation <https://github.com/volaya/qgis-plugincreator-plugin/blob/master/README.md>`_.
-
-		- `Plugin reloader <https://github.com/borysiasty/plugin_reloader>`_: To update plugins when you make changes in the code, without having to restart QGIS. 
-
-		- `First aid plugin <https://github.com/wonder-sk/qgis-first-aid-plugin>`_: Plugin with useful tools for plugin developers, including debugin tools.
-
-	An example of a minimal functional plugin can be found in the `plugin` folder or this repository.
-
