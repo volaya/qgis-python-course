@@ -41,9 +41,5 @@ Below is the structure of an introductory QGIS-Python course.
 
 - `Processing algorithms <processing/processing.rst>`_.  In case the user needs to add analysis functionality, the best way to do it is to add a Processing algorithm.
 
-	It is reccomended to to start with a template, using the `Create New Script from Template` option in the Processing Toolbox. The template is fully commented and should contain enough information to understand what is needed to create a Processing algorithm.
-
-	When a set of scripts has been created, it can be packaged into a plugin that adds those scripts. That can be done from the Processing toolbox, as explained `here <https://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/processing.html#id2>`_
-
 - `Creating plugins <plugins/plugins.rst>`_. How to create QGIS plugins that can be later distributed and installed in other QGIS instances.
 
