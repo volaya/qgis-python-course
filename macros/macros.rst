@@ -21,13 +21,14 @@ We will start with a simple one, which shows a warning when the project is open.
 
 	from qgis.utils import iface
 	from qgis.core import Qgis
+	from qgis.gui import QgsMessageBar
 
 	' A simple project macro to show a warning message when the project is open.'
 	def openProject():
 		iface.messageBar().pushMessage(
 			"Warning",
 			"This project contains classified data. Don't distribute it",
-			Qgis.Warning,
+			QgsMessageBar.WARNING,
 			10
 		)
 
