@@ -1,7 +1,0 @@
-<style>
-p {width: 300px;}
-</style>
-<p>
-[% wikipediaSummary(“wikipedia”) %]
-</p>
-
