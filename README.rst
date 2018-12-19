@@ -3,28 +3,10 @@ QGIS-Python programming
 
 Below is the structure of an introductory QGIS-Python course.
 
-- The QGIS API.
+- `Understanding Python and QGIS <python/python.rst>`_.
 
-	Introduce the QGIS API and other APIs. 
-
-	- Links:
-
-		- `QGIS API <http://qgis.org/api/>`_
-		- `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4>`_ 
-		- `GeoAPIs <http://geoapis.sourcepole.com>`_: A more practical solution for browsing the Python, Qt and QGIS APIs.
-
-	- The reference text for developing Python plugins and using the QGIS Python Console is the  `PyQGIS cookbook <http://docs.qgis.org/2.18/en/docs/pyqgis_developer_cookbook/>`_.
-
-	- Some additional resources that can be used as a reference or as a source of examples:
-
-		- This repository contains densely commented versions of a few QGIS plugins, so their code can be read as a learning tool.
-
-			https://github.com/volaya/commented-qgis-plugins
-
-		- A collection of short snippets can be found here:
-
-			https://github.com/webgeodatavore/pyqgis-samples
-
+- `The QGIS and PyQt APIs <apis/apis.rst>`_. You need to know how to use these APIs before you can write Python code to be run within QGIS.
+	
 - `The Python console <console/console.rst>`_. The first place to start exploring the QGIS API.
 
 - `Expressions <expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
