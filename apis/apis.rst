@@ -53,3 +53,26 @@ As you can see, there are no signals at all. We should expect at least one signa
 Here is the signal definition in the parent class documentation.
 
 	.. figure:: buttonsignals.png
+
+QGIS
+-----
+
+The QGIs API follows a similar approach. If you know how to navigate the Qt API, you will not have problems understanding the QGIS one.
+
+The QGIS API base documentation, generated from the C++ code, is available at https://qgis.org/api/2.18/
+
+You can get the list of classes in the QGIS API at https://qgis.org/api/2.18/annotated.html
+
+	.. figure:: qgis.png
+
+Let's see the documentation for a given class. For instance the ``QgsVectorLayer`` class, which is the base for all vector layers within QGIS.
+
+	.. figure:: vectorlayer.png
+
+You can see an inheritance diagram, which gives you information about the classes inherited by this class and which other ones inherit from it (this was given in plain text in the Qt API).
+
+Underneath you will find the methods of the class, along with signals and slots. QGIS classes inherit from the base Qt ``QObject`` class, and they also use the signals and slots approach mentioned above.
+
+	.. figure:: vectorlayersignals.png
+
+When return values or function parameters have a type that is itself a QGIS class, the type is shown and you can click on it to go to the corresponding documentation page.
