@@ -32,7 +32,7 @@ Here is a description of its files and their content.
 
 - ``metadata.txt``:
 
-    This file is use to describe the plugin. QGIS will use this to manage plugins versions and show the information in the Plugin Manager.
+    This file is used to describe the plugin. QGIS will use this to manage plugins versions and show the information in the Plugin Manager.
 
     The file contains the following lines:
 
@@ -51,88 +51,90 @@ Here is a description of its files and their content.
 
 - ``__init__.py``: 
 
-    This file contains the plugin code. This is usually stored in several files, but in this example, for the sake of simplicity, and since the plugin is rather small, we have put everything in a single file.
+    This file just contains one function. Even in larger plugin, this file just has this content, which is used to inform QGIS of the plugin class that it has to load to instantiate the plugin.
 
-    Let's see what it contains.
-
-    - ``classFactory()`` function. A mandatory function in the ``__init__.py`` file (even if you pu the rest of the plugin in different files) is the ``classFactory()`` function. It should return and object of the class that represents the plugin.
+    - ``classFactory()`` function. A mandatory function in the ``__init__.py`` file. It should return and object of the class that represents the plugin.
 
         .. code-block:: python
 
             def classFactory(iface):
                 return RegexPlugin(iface)
 
-    - The plugin class, ``RegexPlugin``. The plugin class must contain the following three methods.
+- ``plugin.py``:
 
-        - ``__init__(self, iface)``
+    This file contains the main plugin class ``RegexPlugin``. All plugin classes must contain the following three methods.
 
-            It should contain all code required to initialize the plugin, except for the GUI elements. GUI elements are initialized in the ``initGui()`` method.
+    - ``__init__(self, iface)``
 
-            In our example case, we just store the QgisInterface object that is passed to plugins when they are instantiated, so we can use it in other methods of the class.
+        It should contain all code required to initialize the plugin, except for the GUI elements. GUI elements are initialized in the ``initGui()`` method.
 
-            .. code-block:: python
-
-                def __init__(self, iface):
-                    self.iface = iface
-
-        - ``initGui(self)`` 
-
-            This is where GUI content has to be initialized. In our example, we add here the plugin menu to the QGIS menu bar.
-
-            .. code-block:: python
-
-                def initGui(self):
-                    self.action = QAction(u'Regex', self.iface.mainWindow())
-                    self.action.triggered.connect(self.run)
-                    self.iface.addToolBarIcon(self.action)  
-
-        - ``unload(self)``
-
-            Cleanup operations must be performed here. They will be run when the plugin is disabled using the Plugin Manager or when QGIS shuts down). In our case, we case, we simply remove the plugin menu that was added in the ``initGui()`` method, and delete its associated action.
-                    
-            .. code-block:: python
-
-                def unload(self):
-                    self.iface.removeToolBarIcon(self.action)
-                    del self.action
-
-    - The main UI class, ``RegexDialog``.
-
-        It loads the main dialog UI, which has been created using QtDesigner and is stored in the ``plugin.ui`` file. It adds the logic for that UI, and contains the method that performs the selection when the user click on the ``Select`` button.
+        In our example case, we just store the QgisInterface object that is passed to plugins when they are instantiated, so we can use it in other methods of the class.
 
         .. code-block:: python
 
-            WIDGET, BASE = uic.loadUiType(
-                os.path.join(os.path.dirname(__file__), 'plugin.ui'))
+            def __init__(self, iface):
+                self.iface = iface
 
-            class RegexDialog(BASE, WIDGET):
+    - ``initGui(self)`` 
 
-                def __init__(self):
-                    super(RegexDialog, self).__init__(None)
-                    self.layer = None
-                    self.setupUi(self)
-                    self.layerCombo.layerChanged.connect(layerChanged)
-                    self.buttonSelect.clicked.connect(self.selectClicked)
+        This is where GUI content has to be initialized. In our example, we add here the plugin menu to the QGIS menu bar.
 
-                def layerChanged(self, layer):
-                    self.fieldCombo.setLayer(layer)
+        .. code-block:: python
 
-                def selectByRegex(layer, field, regex):
-                    exp = re.compile(regex)
-                    features = layer.getFeatures()
-                    ids = []
-                    for feature in features:
-                        if exp.search(feature[field]):
-                            ids.append(feature.id())
-                    layer.selectByIds(ids)
+            def initGui(self):
+                self.action = QAction(u'Regex', self.iface.mainWindow())
+                self.action.triggered.connect(self.run)
+                self.iface.addToolBarIcon(self.action)  
 
-                def selectClicked(self):
-                    layer = self.layerCombo.currentLayer()
-                    field = self.fieldCombo.currentField()
-                    expression = self.textExpression.text()
-                    selectByRegex(layer, field, expression)
+    - ``unload(self)``
 
-- ``plugin.ui``. The file that contains the UI, as generated by QtDesigner.
+        Cleanup operations must be performed here. They will be run when the plugin is disabled using the Plugin Manager or when QGIS shuts down). In our case, we case, we simply remove the plugin menu that was added in the ``initGui()`` method, and delete its associated action.
+                
+        .. code-block:: python
+
+            def unload(self):
+                self.iface.removeToolBarIcon(self.action)
+                del self.action
+
+- ``regexdialog.py``:
+
+    This file contains the main UI class, ``RegexDialog``. 
+
+    This class loads the main dialog UI, which has been created using QtDesigner and is stored in the ``regexdialog.ui`` file. It adds the logic for that UI, and contains the method that performs the selection when the user clicks on the ``Select`` button.
+
+    .. code-block:: python
+
+        WIDGET, BASE = uic.loadUiType(
+            os.path.join(os.path.dirname(__file__), 'regexdialog.ui'))
+
+        class RegexDialog(BASE, WIDGET):
+
+            def __init__(self):
+                super(RegexDialog, self).__init__(None)
+                self.layer = None
+                self.setupUi(self)
+                self.layerCombo.layerChanged.connect(layerChanged)
+                self.buttonSelect.clicked.connect(self.selectClicked)
+
+            def layerChanged(self, layer):
+                self.fieldCombo.setLayer(layer)
+
+            def selectByRegex(layer, field, regex):
+                exp = re.compile(regex)
+                features = layer.getFeatures()
+                ids = []
+                for feature in features:
+                    if exp.search(feature[field]):
+                        ids.append(feature.id())
+                layer.selectByIds(ids)
+
+            def selectClicked(self):
+                layer = self.layerCombo.currentLayer()
+                field = self.fieldCombo.currentField()
+                expression = self.textExpression.text()
+                self.selectByRegex(layer, field, expression)
+
+- ``regexdialog.ui``. The file that contains the UI of the regex dialog, as generated by QtDesigner.
 
 How to install a plugin
 -------------------------
