@@ -3,7 +3,7 @@ QGIS-Python programming
 
 This repository contains an introductory course about using Python in QGIS.
 
-It is based on QGIS 3. If you want to use QGIS 2 instead, check the `qgis2<https://github.com/volaya/qgis-python-course/tree/qgis2>`_ branch of the repository
+It is based on QGIS 3. If you want to use QGIS 2 instead, check the `qgis2 <https://github.com/volaya/qgis-python-course/tree/qgis2>`_ branch of the repository
 
 Content
 -------
