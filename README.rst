@@ -1,16 +1,20 @@
 QGIS-Python programming
 =========================
 
-Below is the structure of an introductory QGIS-Python course.
+This repository contains an introductory course about using Python in QGIS.
 
-- `Understanding Python and QGIS <python/python.rst>`_.
+It is based on QGIS 3. If you want to use QGIS 2 instead, check the `qgis2<https://github.com/volaya/qgis-python-course/tree/qgis2>`_ branch of the repository
+
+Content
+-------
+
+- `Understanding Python and QGIS <python/python.rst>`_. A brief introduction to how Python is installed within QGIS.
 
 - `The QGIS and PyQt APIs <apis/apis.rst>`_. You need to know how to use these APIs before you can write Python code to be run within QGIS.
 
 - `The Python console <console/console.rst>`_. The first place to start exploring the QGIS API.
 
 - `Expressions <expressions/expressions.rst>`_. How to create a custom Python expression and later use it in different places in QGIS. 
-
 
 - `Custom Python actions <actions/actions.rst>`_. React to user interaction in the canvas or attributes table.
 
