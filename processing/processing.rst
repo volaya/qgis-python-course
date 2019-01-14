@@ -111,22 +111,26 @@ As you can see, even for a small algorithm such as this one, we must write a lar
 
 Here's how the above algorithm would look using this approach.
 
-@alg("saveselectedfeature", "Save selected features", group="vectortools", group_label="Vector tools")
-@alg.input(type=alg.FEATURE_SOURCE, name="INPUT", label="Input layer")
-@alg.input(type=alg.SINK, name="OUTPUT", label="Output layer")
-def save_selected(instance, parameters, context, feedback):
-    source = instance.parameterAsSource(parameters, "INPUT", context)
-    (sink, dest_id) = instance.parameterAsSink(parameters, "OUTPUT", context,
-                                           source.fields(), source.wkbType(), source.sourceCrs())
+.. code-block:: python
 
-    features = source.getFeatures(QgsFeatureRequest())
-    for feat in features:
-        out_feat = QgsFeature()
-        out_feat.setGeometry(feat.geometry())
-        out_feat.setAttributes(feat.attributes())
-        sink.addFeature(out_feat, QgsFeatureSink.FastInsert)
+    @alg("saveselectedfeature", "Save selected features", group="vectortools", group_label="Vector tools")
+    @alg.input(type=alg.FEATURE_SOURCE, name="INPUT", label="Input layer")
+    @alg.input(type=alg.SINK, name="OUTPUT", label="Output layer")
+    def save_selected(instance, parameters, context, feedback):
+        source = instance.parameterAsSource(parameters, "INPUT", context)
+        (sink, dest_id) = instance.parameterAsSink(parameters, "OUTPUT", context,
+                                               source.fields(), source.wkbType(), source.sourceCrs())
 
-    return {instance.OUTPUT: dest_id}
+        features = source.getFeatures(QgsFeatureRequest())
+        for feat in features:
+            out_feat = QgsFeature()
+            out_feat.setGeometry(feat.geometry())
+            out_feat.setAttributes(feat.attributes())
+            sink.addFeature(out_feat, QgsFeatureSink.FastInsert)
+
+        return {instance.OUTPUT: dest_id}
+
+As you can see, there is no need to create a class here, but just the main function, decorated using the corresponding decorators.
 
 The function must have four parameters, just as the ``processAlgorithm`` method if using the full syntax without decorators. The first one is an instance of the algorithm object, so we replace all the ``self`` calls in the method with that ``instance`` parameter.
 
