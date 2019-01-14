@@ -42,7 +42,7 @@ Here is a description of its files and their content.
         name=SelectByRegex
         description=Select By regular expressions
         version=1.0
-        qgisMinimumVersion=2.0
+        qgisMinimumVersion=3.0
         author=Victor Olaya
         email=volaya@boundlessgeo.com
 

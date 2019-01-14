@@ -1,7 +1,7 @@
 [general]
-name=Minimal
-description=Minimal plugin
+name=SelectByRegex
+description=Select By regular expressions
 version=1.0
-qgisMinimumVersion=2.0
-author=Martin Dobias
-email=wonder.sk@gmail.com
+qgisMinimumVersion=3.0
+author=Victor Olaya
+email=volaya@boundlessgeo.com
