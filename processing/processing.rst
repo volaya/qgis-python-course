@@ -113,10 +113,14 @@ Here's how the above algorithm would look using this approach.
 
 .. code-block:: python
 
+    from qgis.processing import alg
+    from qgis.core import QgsFeatureSink
+
     @alg("saveselectedfeature", "Save selected features", group="vectortools", group_label="Vector tools")
-    @alg.input(type=alg.FEATURE_SOURCE, name="INPUT", label="Input layer")
+    @alg.input(type=alg.SOURCE, name="INPUT", label="Input layer")
     @alg.input(type=alg.SINK, name="OUTPUT", label="Output layer")
     def save_selected(instance, parameters, context, feedback):
+        ''
         source = instance.parameterAsSource(parameters, "INPUT", context)
         (sink, dest_id) = instance.parameterAsSink(parameters, "OUTPUT", context,
                                                source.fields(), source.wkbType(), source.sourceCrs())
@@ -140,3 +144,34 @@ For inputs and outputs, a ``name`` parameter has to be defined (the internal nam
 
 The ``type`` can be a Python built-in type (str, int, float...) or one of the types defined in the ``ProcessingAlgFactory`` class. You can find the allowed values for outputs `here <https://github.com/qgis/QGIS/blob/master/python/processing/algfactory.py#L366>`_ and the ones for inputs `here <https://github.com/qgis/QGIS/blob/master/python/processing/algfactory.py#L413>`_
 
+
+In the next section, we will see how to create a plugin to select using a regular expression. Here is a similar idea, implemented as a Processing algorithm using decorators
+
+
+
+.. code-block:: python
+    
+    from qgis.processing import alg
+    from qgis.core import QgsFeatureSink
+    import re
+    
+    @alg(name="extractbyregex", label="Extract by Regex", group="Tutorial scripts", group_label="tutorialscripts")
+    @alg.input(type=alg.VECTOR_LAYER, name="INPUT", label="Input")
+    @alg.input(type=alg.FIELD, name="FIELD", label="Field", parentLayerParameterName="INPUT") 
+    @alg.input(type=alg.STRING, name="REGEX", label="Regex")
+    @alg.input(type=alg.SINK, name="OUTPUT", label="Output")
+    def extractbyregex(instance, params, context, feedback, inputs):
+      ''
+      source = instance.parameterAsSource(params, "INPUT", context)
+      (sink, destId) = instance.parameterAsSink(params, "OUTPUT", context, source.fields(), 
+                                            source.wkbType(), source.sourceCrs())
+      regex = instance.parameterAsString(params, "REGEX", context)
+      field = instance.parameterAsString(params, "FIELD", context)
+      exp = re.compile(regex)
+
+      features = source.getFeatures()
+      for feature in features:            
+        if exp.search(feature[field]):  
+          sink.addFeature(feature, QgsFeatureSink.FastInsert)
+
+      return {"OUTPUT": destId}
